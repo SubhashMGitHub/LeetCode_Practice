@@ -1,0 +1,58 @@
+import java.util.*;
+
+class Solution {
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+        
+        Dictionary dict = new Hashtable();
+        char[] CharArray = new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};  
+        for(int i=0;i<26;i++){
+            dict.put(CharArray[i], i);
+        }
+        char[] ca1=firstWord.toCharArray();
+        char[] ca2=secondWord.toCharArray();
+        char[] ca3=targetWord.toCharArray();
+        int sum1=0,sum2=0,sum3=0;
+        for(int j=0;j<ca1.length;j++)
+        {
+           for(int k=0;k<26;k++)
+           {
+               if(ca1[j]==CharArray[k])
+               {
+                   sum1=sum1*10+k;
+               }
+                   
+           }
+        }
+        
+        for(int j=0;j<ca2.length;j++)
+        {
+           for(int k=0;k<26;k++)
+           {
+               if(ca2[j]==CharArray[k])
+               {
+                   sum2=sum2*10+k;
+               }
+                   
+           }
+        }
+        
+        for(int j=0;j<ca3.length;j++)
+        {
+           for(int k=0;k<26;k++)
+           {
+               if(ca3[j]==CharArray[k])
+               {
+                   sum3=sum3*10+k;
+               }
+                   
+           }
+        }
+        if(sum1+sum2==sum3){
+            return true;
+        }
+        else
+            return false;
+      
+      
+    }
+}
