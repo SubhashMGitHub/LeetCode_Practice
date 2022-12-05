@@ -1,0 +1,28 @@
+
+ 
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Solution {
+    public int thirdMax(int[] nums) {
+        
+        
+        ArrayList<Integer> al= new ArrayList<Integer>();
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            al.add(nums[i]);
+        }
+         Collections.sort(al, Collections.reverseOrder());
+        
+        
+        List<Integer> UniqueNumbers = al.stream().distinct().collect(Collectors.toList());
+        
+        if(UniqueNumbers.size()<3)
+        {
+            return UniqueNumbers.get(0);
+        }
+        else
+            return UniqueNumbers.get(2);
+    }
+}
